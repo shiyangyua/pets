@@ -1,6 +1,16 @@
 <template>
 	<view>
-		我的
+		<view class="header">
+			<image src="../../static/headpic.jpg" mode=""></image>
+			<view class="name">
+				Oxygen
+				</view>
+			</view>
+			<uni-list >
+				<uni-list-item @click="goMyPub">我发布的领养</uni-list-item>
+				<uni-list-item>我申请的领养</uni-list-item>
+			</uni-list>
+		</view>
 	</view>
 </template>
 
@@ -9,11 +19,31 @@
 		data() {
 			return {
 				
-			};
+			}
+		},
+		methods:{
+			goMyPub(){
+				uni.navigateTo({
+					url:"pages/mine/myPublish"
+				})
+			}
 		}
 	}
 </script>
 
 <style lang="scss">
-
+.header{
+	display: flex;
+	// flex-wrap: wrap;
+	.name{
+		// line-height: 150rpx;
+		margin: auto 0;
+	}
+	image{
+		width: 150rpx;
+		height: 150rpx;
+		border-radius: 50%;
+		margin:50rpx 30rpx ;
+	}
+}
 </style>
