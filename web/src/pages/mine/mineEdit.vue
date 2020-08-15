@@ -10,6 +10,13 @@
 				<uni-list-item title="性别">
 				</uni-list-item>
 				<uni-list-item title="城市">
+					<view>			<!-- 地区选择器 -->
+						<view class="uni-list-cell-db">
+							<picker @change="bindPickerChange" :value="index" :range="array">
+								<view class="uni-input">{{array[index]}}</view>
+							</picker>
+						</view>
+					</view>
 				</uni-list-item>
 				<uni-list-item title="自我介绍"> </uni-list-item>
 
@@ -24,13 +31,22 @@
 	export default {
 		data() {
 			return {
-
-			};
+				title: 'picker',
+				array: ['中国', '美国', '巴西', '日本'],
+				index: 0,
+			}
+		},
+		methods: {
+			selectPosition() {},
+			bindPickerChange: function(e) {
+				console.log('picker发送选择改变，携带值为', e.target.value)
+				this.index = e.target.value
+			}
 		}
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.mineEdit {
 		display: flex;
 		justify-content: center;
@@ -43,4 +59,11 @@
 			// margin: 10rpx auto;
 		}
 	}
+uni-list{
+	uni-list-item{
+		width: 100%;
+		display: flex;
+		// flex-direction: ;
+	}
+}
 </style>
